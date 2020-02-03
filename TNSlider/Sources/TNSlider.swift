@@ -11,14 +11,14 @@ import UIKit
 extension String {
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         
         return boundingBox.height
     }
     
     func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         
         return boundingBox.width
     }
@@ -207,7 +207,7 @@ public class TNSlider: UIControl {
         thumbLayer.cornerRadius = thumbHeight / 2
         thumbLayer.fontSize = 11
         thumbLayer.backgroundColor = UIColor.white.cgColor
-        thumbLayer.alignmentMode = kCAAlignmentCenter
+        thumbLayer.alignmentMode = CATextLayerAlignmentMode.center
         thumbLayer.contentsScale = UIScreen.main.scale
         
         thumbLayer.masksToBounds = false
